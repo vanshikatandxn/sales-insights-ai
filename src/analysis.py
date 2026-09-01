@@ -1,18 +1,21 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 
 df = pd.read_csv("../data/sales_data_clean.csv")
 
 df["order_date"] = pd.to_datetime(df["order_date"])
 
-territory_revenue = df.groupby("territory")["revenue"].sum().sort_values(ascending=False)
+# Filter to only November orders (any year)
+november_orders = df[df["order_date"].dt.month == 11]
 
-print(territory_revenue)
+# Break down November revenue by product category
+november_by_product = november_orders.groupby("product_category")["revenue"].sum().sort_values(ascending=False)
 
-territory_revenue.plot(kind="bar", figsize=(10, 5), title="Revenue by Territory")
-plt.xlabel("Territory")
-plt.ylabel("Revenue ($)")
-plt.tight_layout()
-plt.savefig("../notebooks/territory_revenue.png")
+print("November revenue by product category:")
+print(november_by_product)
 
-print("Chart saved to notebooks/territory_revenue.png")
+# Compare: what % of EACH category's total yearly revenue happens in November?
+total_by_product = df.groupby("product_category")["revenue"].sum()
+november_share = (november_by_product / total_by_product * 100).sort_values(ascending=False)
+
+print("\n% of each category's total revenue that happens in November:")
+print(november_share)
