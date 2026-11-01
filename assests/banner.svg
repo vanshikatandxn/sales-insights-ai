@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="Weather ELT Pipeline: Apache Airflow and PostgreSQL">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#13233F"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="400" fill="url(#bg)"/>
+  <rect width="1280" height="400" fill="url(#grid)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accent)"/>
+
+  <g font-family="Segoe UI, Helvetica Neue, Arial, sans-serif">
+    <text x="80" y="118" fill="#94A3B8" font-size="16" font-weight="600" letter-spacing="4">DATA ENGINEERING</text>
+    <text x="80" y="172" fill="#F8FAFC" font-size="52" font-weight="700">Weather ELT Pipeline</text>
+    <text x="80" y="212" fill="#CBD5E1" font-size="22">Batch orchestration with Apache Airflow and a layered PostgreSQL warehouse</text>
+
+    <!-- pipeline flow -->
+    <g font-size="15" font-weight="600" text-anchor="middle">
+      <g transform="translate(80,268)">
+        <rect width="190" height="64" rx="10" fill="#0F172A" stroke="#334155"/>
+        <text x="95" y="28" fill="#F1F5F9">Open-Meteo API</text>
+        <text x="95" y="48" fill="#64748B" font-size="12" font-weight="400">source</text>
+      </g>
+      <g transform="translate(320,268)">
+        <rect width="190" height="64" rx="10" fill="#0F172A" stroke="#38BDF8"/>
+        <text x="95" y="28" fill="#F1F5F9">Apache Airflow</text>
+        <text x="95" y="48" fill="#64748B" font-size="12" font-weight="400">orchestration</text>
+      </g>
+      <g transform="translate(560,268)">
+        <rect width="190" height="64" rx="10" fill="#0F172A" stroke="#334155"/>
+        <text x="95" y="28" fill="#F1F5F9">raw</text>
+        <text x="95" y="48" fill="#64748B" font-size="12" font-weight="400">landing schema</text>
+      </g>
+      <g transform="translate(800,268)">
+        <rect width="190" height="64" rx="10" fill="#0F172A" stroke="#334155"/>
+        <text x="95" y="28" fill="#F1F5F9">staging</text>
+        <text x="95" y="48" fill="#64748B" font-size="12" font-weight="400">cleaned and typed</text>
+      </g>
+      <g transform="translate(1040,268)">
+        <rect width="160" height="64" rx="10" fill="#0F172A" stroke="#6366F1"/>
+        <text x="80" y="28" fill="#F1F5F9">marts</text>
+        <text x="80" y="48" fill="#64748B" font-size="12" font-weight="400">analytics</text>
+      </g>
+    </g>
+    <g stroke="#64748B" stroke-width="2" marker-end="url(#arrow)">
+      <line x1="274" y1="300" x2="314" y2="300"/>
+      <line x1="514" y1="300" x2="554" y2="300"/>
+      <line x1="754" y1="300" x2="794" y2="300"/>
+      <line x1="994" y1="300" x2="1034" y2="300"/>
+    </g>
+  </g>
+</svg>
